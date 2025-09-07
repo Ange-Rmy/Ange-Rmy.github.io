@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Generators ! - Générateur de personnage</title>
+</head>
+
+<body>
+
+    <div class="gnrlbox">
+        <div class="card">
+            <h1>Générateur de personnage !</h1>
+            <table>
+                <tr>
+                    <td class="title">Genre</td>
+                    <td class="title">Âge</td>
+                </tr>
+                <tr>
+                    <td class="tirage flipX" id="genre"></td>
+                    <td class="tirage flipX" id="age"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="title">Race</td>
+                    <td class="title">Caractère</td>
+                </tr>
+                <tr>
+                    <td class="tirage flipX" id="race"></td>
+                    <td class="tirage flipX" id="caractere"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="title">Arme</td>
+                    <td class="title">Apparence</td>
+                </tr>
+                <tr>
+                    <td class="tirage flipX" id="arme"></td>
+                    <td class="tirage flipX" id="apparence"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="title">Particularité</td>
+                    <td class="title">Style vestimentaire</td>
+                </tr>
+                <tr>
+                    <td class="tirage flipX" id="particularite"></td>
+                    <td class="tirage flipX" id="stylevetement"></td>
+                </tr>
+            </table>
+            <p>(C)Ange-Rmy</p>
+        </div>
+        <table>
+            <tr>
+                <td></td>
+                <td><button id="randomchara">Relancer la carte !</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <a href="index.html"><button>Gentil Accueil</button></a>
+
+    <script>
+        //GENERATEUR PERSO
+        const setRandomChara = () => {
+            function getRandomItem(arr) {
+                let randomIndex = Math.floor(Math.random() * arr.length);
+                let item = arr[randomIndex];
+                return item;
+            }
+            let genre = ["Féminin", "Masculin", "?", "Asexué", "Androgyne"];
+            let rand_genre = getRandomItem(genre);
+            let genreElement = document.getElementById("genre");
+            genreElement.textContent = rand_genre;
+
+            let age = ["0 à 3 ans", "4 à 11 ans", "12 à 18 ans", "18 à 25 ans", "25 à 40 ans", "41 à 50 ans", "51 à 90 ans", "91 à éternité"];
+            let rand_age = getRandomItem(age);
+            let ageElement = document.getElementById("age");
+            ageElement.textContent = rand_age;
+
+            let race = ["Elfe noir", "Elfe sylvain", "Nain", "Vampire", "Troll", "Humain", "Hybride", "Géant", "Gobelin", "Ogre", "Ondin", "Centaure", "Sirène", "Ange", "Démon", "Fée", "Lutin", "Magicien.ne", "Sorcier.e", "Humanoid", "Mafieux"];
+            let rand_race = getRandomItem(race);
+            let raceElement = document.getElementById("race");
+            raceElement.textContent = rand_race;
+
+            let caractere = ["Affectueux", "Distrait", "Adorable", "Doux", "Aggressif", "Amical", "Apaisant", "Audacieux", "Autoritaire", "Bavard", "Cafardeux", "Charismatique", "Cinglé", "Comique", "Confiant", "Coquet", "Créatif", "Cruel", "Cultivé", "Décontracté", "Délicat", "Désagréable", "Détendu", "Diabolique", "Discipliné", "Discret", "Distingué", "Dur", "Effronté", "Energique", "Extrentique", "Extraverti", "Fainéant", "Flatteuse", "Fourbe", "Galant", "Glacial", "Hautain", "Humble", "Immature", "Inoffensif", "Inquiet", "Sérieux", "Tyrannique", "Mauvais", "Intelligent", "Ironique", "Jaloux", "Joyeux", "Triste", "Joueur", "Jovial", "Leader", "Lent", "Loyal", "Lunatique", "Rancunier", "Machiavélique", "Magnagime", "Maître de soi", "Maladroit", "Malhonnête", "Malin", "Malsain", "Manique", "Manipulateur", "Manuel", "Mature", "Mafiant", "Mégalo", "Menteuse", "Meskin", "Généreux", "Méthodique", "Désordonné", "Minutieux", "Mystérieux", "Mytho", "Naïf", "Narcissique", "Naturel", "Négatif", "Niais", "Nerveux", "?", "Orgueilleux", "Peureux", "Prétentieux", "Protecteur", "Puéril", "Raisonnable", "Rapide", "Romantique", "Sadique", "Soigné", "Souriant", "Sportif", "Taquin", "Timide", "Torturé", "Travailleur", "Tricheur", "Vaniteux", "Vantard", "Violent", "Vivant", "Mou", "Viril"];
+            let rand_caractere = getRandomItem(caractere);
+            let caractereElement = document.getElementById("caractere");
+            caractereElement.textContent = rand_caractere;
+
+            let arme = ["Afena", "Anicroche", "Arbalète", "Arc", "Arc Lumineux", "Arme à feu", "Bagua Dao", "Baguette Magique", "Baïonnette", "Bardiche", "Bâton", "Bâton Magique", "Bec de corbin", "Bō", "Bokken", "Bombes à fumée", "Bolas", "Boomerang", "Bottes Uniques", "Braquemard", "Broadsword", "Canif", 'Canne de combat', "Canne-épée", "Ceste", 'Cimeterre', "Chachka", "Claymore", "Clefs spéciales", "Colichemarde", "Couteau d’Avigliano", "Couteau de combat", "Couteau de lancer", "Coup-de-poing américain", "Croissant", "Daishō", "Dague", "Dirk", "Épée à deux mains", "Epée Aiguisée", "Épée bâtarde", "Épée de cour", "Espadon", "Estoc", "Faucille", "Fauchon", "Faux de guerre", "Faux géante", 'Flamberge', "Fléau d'armes", "Fleuret", "Flissa", "Francisque", "Fukuro Yari", "Gantelet", "Guisarme", 'Glaive', "Gourdin", "Gouzotte", "Griffes Empoisonnées", "Hache d'armes", "Hache de la mort", "Hache de Lochaber", 'Hallebarde', 'Harpe', "Harpon", "Javeline", "Javelot", "Jian", "Juumonji Yari", "Kandjar", "Katana", "Katzbalger", "Kikuchi Yari", "Kilij", "Kirpan", "Khukuri", "Kunai", "Kusari chigiriki", "Kriss", "Labrys", "Laguiole", "Lance Mortel", "Latte", "Machette", "Main-gauche", "Massue", "Méga Marteau", 'Nagamaki', "Naginata", "Nimcha", 'Ninjatō', 'Nodachi', "Nunchaku", "Nunti", "Omi Yari", "Opinel", "Percemaille", "Pertuisane", "Pilum", "Pique", "Plumbata", "Poignard", "Poudre spéciale", "Rapière", "Reitschwert", "Sabre", "Sabre briquet", "Sabre d'abordage", "Sabrolaser", "Sagaie", "Sangaku Yari", "Sasaho Yari", "Sasumata", "Schiavone", "Scramasaxe", "Serpe", "Serpette", "Shillelagh", "Shinai", "Shotel", "Shurikens", "Sodegarami", "Spada da lato", "Spatha", "Stylet (poignard)", "Sugu Yari", "Tachi", "Tantō", 'Tomahawk', "Tsukubo", "Vouge", 'Wakizashi', "Woldo", "Xiphos", "Ya gata yari", "Yari", "Yari Juu-ji", "Yatagan"];
+            let rand_arme = getRandomItem(arme);
+            let armeElement = document.getElementById("arme");
+            armeElement.textContent = rand_arme;
+
+            let apparence = ["Musculature développée", "Corps fin", "Très grand", "Mignon", "Petit", "Long", "Grand", "Athlétique", "Carré", "Chétif", "Maigre", "Fluet", "Frêle", "Mince", "Ample", "Rond", "Forte Carrure", "Ventru", "Tordu", "Bien Bâti", "Gracieux", "Elegant", "Petite Masse"];
+            let rand_apparence = getRandomItem(apparence);
+            let apparenceElement = document.getElementById("apparence");
+            apparenceElement.textContent = rand_apparence;
+
+            let particularite = ["Cornes", "Un oeil", "Oreilles et queues animales", "Troisième oeil", "Quatre yeux", "Ailes", "Yeux billes de nounours", "Yolo Swag", "Mâchoire carrée", "Coupe Affro", "Bras artificiel", "Jambe artificielle", "Perfection", "Yeux brillants", "Peau douce", 'Cils très longs'];
+            let rand_particularite = getRandomItem(particularite);
+            let particulariteElement = document.getElementById("particularite");
+            particulariteElement.textContent = rand_particularite;
+
+            let stylevetement = ["Androgyne", "Arty", "Automnal", "Bohème", "Bourgeois", "British", "Chic", "Comfy", "Décalé", "Débraillé", "Décontracté", "Ecolier", "Estival", "Fashionista", "Fleuri", "Glamour", "Gorpcore", "Gothique", "Grunge", "Gypset", "Hip-Hop", "Hippie", "Hivernal", "Kawaii", "Lolita", "Néo-Bourgeois", "Normcore", "Pin-up", "Professionnel", "Printanier", "Punk", "Retro", "Rock", "Romantique", "Simple", "Soigné", "Sportwear", "Steampunk", "Streetwear", "Techwear", "Urbain", "Victorien", "Vintage", "Witchy"];
+            let rand_stylevetement = getRandomItem(stylevetement);
+            let stylevetementElement = document.getElementById("stylevetement");
+            stylevetementElement.textContent = rand_stylevetement;
+        }
+
+        randomchara.addEventListener("click", setRandomChara);
+        setRandomChara();
+    </script>
+
+</body>
+
+</html>
+
+<style>
+    body {
+        padding: 2em;
+        width: 900px;
+        margin: auto;
+        font-family: 'VT323';
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: normal;
+        font-size: 3em;
+        margin: 0;
+    }
+
+    p {
+        text-align: end;
+        font-weight: normal;
+        font-size: 1em;
+        margin: 0;
+        padding-right: 20px;
+    }
+
+    .gnrlbox {
+        padding: 1em;
+    }
+
+    .card {
+        background-color: rgb(0, 150, 130);
+        margin: auto;
+        padding: 1em;
+        width: 570px;
+        border-radius: 30px;
+        color: #FFFFFF;
+    }
+
+    table {
+        font-size: 1.5em;
+        padding: 0.5em;
+        margin: auto;
+        font-family: 'VT323';
+        text-align: center;
+    }
+
+    tr {
+        padding-top: 0.5em;
+    }
+
+    .title {
+        width: 260px;
+    }
+
+    .tirage {
+        min-width: 260px;
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+
+    button {
+        padding: 0.5em;
+        background-color: #ffff00;
+        border-radius: 10px;
+        font-family: 'VT323';
+        transition-duration: 0.2s;
+        font-size: 1em;
+        border: none;
+    }
+
+    button:hover {
+        transform: scale(0.95);
+        border-radius: 10px
+    }
+</style>
